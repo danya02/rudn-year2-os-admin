@@ -1,11 +1,89 @@
-# Отчет по лабораторной работе №1
-## Генералов Даниил, НПИбд-01-21, 1032202280
+---
+## Front matter
+title: "Отчет по лабораторной работе 1"
+subtitle: ""
+author: "Генералов Даниил, НПИбд-01-21, 1032202280"
 
-## Цель работы
+## Generic otions
+lang: ru-RU
+toc-title: "Содержание"
+
+
+## Pdf output format
+toc: true # Table of contents
+toc-depth: 2
+lof: true # List of figures
+lot: true # List of tables
+fontsize: 12pt
+linestretch: 1.5
+papersize: a4
+documentclass: scrreprt
+## I18n polyglossia
+polyglossia-lang:
+  name: russian
+  options:
+	- spelling=modern
+	- babelshorthands=true
+polyglossia-otherlangs:
+  name: english
+## I18n babel
+babel-lang: russian
+babel-otherlangs: english
+## Fonts
+mainfont: PT Serif
+romanfont: PT Serif
+sansfont: PT Sans
+monofont: PT Mono
+mainfontoptions: Ligatures=TeX
+romanfontoptions: Ligatures=TeX
+sansfontoptions: Ligatures=TeX,Scale=MatchLowercase
+monofontoptions: Scale=MatchLowercase,Scale=0.9
+## Biblatex
+biblatex: true
+biblio-style: "gost-numeric"
+biblatexoptions:
+  - parentracker=true
+  - backend=biber
+  - hyperref=auto
+  - language=auto
+  - autolang=other*
+  - citestyle=gost-numeric
+## Pandoc-crossref LaTeX customization
+figureTitle: "Рис."
+tableTitle: "Таблица"
+listingTitle: "Листинг"
+lofTitle: "Список иллюстраций"
+lotTitle: "Список таблиц"
+lolTitle: "Листинги"
+## Misc options
+indent: true
+header-includes:
+  - \usepackage{indentfirst}
+  - \usepackage{float} # keep figures where there are in the text
+  - \floatplacement{figure}{H} # keep figures where there are in the text
+---
+
+# Цель работы
+
 В рамках этой лабораторной работы требуется установить систему Rocky Linux на виртуальную машину.
 Это необходимо для последующих лабораторных работ.
 
-## Выполнение работы
+# Задание
+
+> Лабораторная работа подразумевает установку на виртуальную машину VirtualBox
+> (https://www.virtualbox.org/) операционной системы Linux (дистрибутив
+> Rocky (https://rockylinux.org/) или CentOS (https://www.centos.org/)).
+> Выполнение работы возможно как в дисплейном классе факультета физико-
+> математических и естественных наук РУДН, так и дома. Описание выполнения
+> работы приведено для дисплейного класса со следующими характеристиками:
+> – Intel Core i3-550 3.2 GHz, 4 GB оперативной памяти, 20 GB свободного места на
+жёстком диске;
+> – ОС Linux Gentoo (http://www.gentoo.ru/);
+> – VirtualBox верс. 6.1 или старше;
+> – каталог с образами ОС для работающих в дисплейном классе:
+> /afs/dk.sci.pfu.edu.ru/common/files/iso/
+
+# Выполнение лабораторной работы
 
 Сначала я скачал образ системы с официального сайта Rocky Linux.
 Выбранная версия -- minimal, x86_64.
@@ -14,19 +92,21 @@
 После этого я использовал `virt-manager` -- графический интерфейс для системы виртуализации `libvirt` -- для создания виртуальной машины.
 В этой виртуальной машине я запустил установочный образ системы, и после нескольких настроек запустилась установка.
 
-![Установка](Screenshot_1.png)
+![Установка](Screenshot_1.png){ #fig:001 width=70% }
 
 В то время, как устанавливалась система, я написал этот отчет.
 
 Когда система установилась, я зашел в систему и узнал требуемую информацию из лога `dmesg` -- она показана на скриншоте ниже. Здесь же я указал `hostname` системы -- это будет обновлено при следующей перезагрузке.
 
-![Поиск dmesg](Screenshot_2.png)
+![Поиск dmesg](Screenshot_2.png){ #fig:001 width=70% }
 
-## Вывод
+
+# Выводы
+
 Результатом моей работы оказалась рабочая установка системы Rocky Linux,
 которую я затем смогу использовать для выполнения последующих лабораторных работ.
 
-## Контрольные вопросы
+# Контрольные вопросы
 1. Какую информацию содержит учётная запись пользователя?
 
 В `/etc/passwd` -- файле, в котором хранится информация о пользователях системы -- есть следующие поля:
